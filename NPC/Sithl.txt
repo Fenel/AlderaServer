@@ -1,0 +1,96 @@
+######################
+# Testowy npc Marian #
+# Sithl by Fenel :D   #
+######################
+
+shop_begin #buy - gracz moze kupic, sell - gracz moze sprzedac
+   buy 439 1000
+   buy 236 30
+   buy 361 20
+   buy 362 20
+   buy 461 2
+   buy 470 2
+   buy 438 1
+   buy 440 3
+   buy 441 2
+   buy 442 2
+   buy 443 2
+   buy 444 2
+   buy 445 2
+   buy 446 2
+   buy 447 2
+   buy 448 2
+   buy 449 2
+   buy 450 2
+   sell 439 100
+   sell 453 2
+   sell 283 2
+   sell 284 2
+shop_end
+
+main_begin
+   say "Hello. I'm Marian, as you should know."
+   say "I can tell you about my job and about this land."
+   actGetPlayerValue(101,-1)
+   if -1
+   then
+      say "Unfortunately, I lost something precious..."
+      d6 "What did you lose?"
+   fi
+   d5 "Tell me about your job."
+   d2 "Tell me about this land."
+   dend "Bye."
+main_end
+
+d2_begin
+   say "This land was created around 2009 year, firstly in simple "
+   say "map editor, later our God Alastor programmed single player "
+   say "game called 'Fusion'. Are you still listening to me?"
+   d3 "It's interesting, I want more knowledge!"
+   dend "Bye."
+d2_end
+
+d3_begin
+   say "I'm glad to hear that, let's continue that conversation."
+   say "At this time he started learning about network programming, "
+   say "and programmed this server. After that time, there are plenty "
+   say "of updates, new functionalities and now, we're here ;)"
+   d4 "That's wonderful story. Thank you for your time."
+   dend "Bye."
+d3_end
+
+d4_begin
+   say "No... I should be more grateful to you for hearing this story."
+   d5 "Tell me about your job."
+   dend "Bye."
+d4_end
+
+d5_begin
+   say "I'm story teller. I was here for last long five years, huh..."
+   d2 "Tell me about this land."
+   dend "Bye."
+d5_end
+
+d6_begin
+   say "Yesterday, when I'm killing rats underneath temple, "
+   say "I sense that i don't have my red jewel anymore... "
+   say "If you will find it, please tell me as fast as possible!"
+   d7 "I've just found your jewel!"
+   dend "Bye."
+d6_end
+
+d7_begin
+   actRemovePlayerItem(439,1)
+   if 1
+   then
+      say "Thank you so much! I'll give you some gold."
+      actSetPlayerValue(101,1)
+      actAddPlayerItem(294,150)
+   else
+      say "You don't have that jewel..."
+      say "I'll repeat: red, diamond shaped jewel."
+   fi
+   d5 "Tell me about your job."
+   d2 "Tell me about this land."
+   dend "Bye."
+d7_end

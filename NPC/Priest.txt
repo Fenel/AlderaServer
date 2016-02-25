@@ -1,0 +1,70 @@
+shop_begin
+   buy 439 1000
+   sell 439 100
+shop_end
+
+main_begin
+   say "Hello. So you finally ask me about something?"
+   say "You should ask me earlier, coz I'm here to help ;)"
+   actGetPlayerValue(439,-1)
+   if -1
+   then
+      d2 "Can you give me anything?"
+   else
+      d6 "I need more crystals!"
+   fi
+   d3 "Tell me about your job."
+   d4 "Tell me about this game."
+   d5 "Tell me about NPCs."
+   dend "Bye."
+main_end
+
+d2_begin
+   actAddPlayerItem(439,1)
+   if 1
+   then
+      actSetPlayerValue(439,1)
+      say "I've put a little present into your inventory."
+      say "Don't ask about giving you anything else!"
+   else
+      say "Come back when you'll free your inventory!"
+   fi
+   d3 "Tell me about your job."
+   d4 "Tell me about this game."
+   d5 "Tell me about NPCs."
+   dend "Bye."
+d2_end
+
+d3_begin
+   say "I'am here to help new players ;)."
+   say "Don't be afraid to ask me about anything."  
+   d4 "Tell me about this game."
+   d5 "Tell me about NPCs."
+   dend "Bye."
+d3_end
+
+d4_begin
+   actRemovePlayerItem(439,1)
+   if 1
+   then
+      say "Give back my jewel! Stupid game!"
+      actSetPlayerValue(439,-1)
+   fi
+   say "This game? Some garage work of informatics student..."
+   d3 "Tell me about your job."
+   d5 "Tell me about NPCs."
+   dend "Bye."
+d4_end
+
+d5_begin
+   say "NPCs? I'm one of them and they're very simple."
+   say "I'm created from about 25 lines of code ;)"
+   d3 "Tell me about your job."
+   d4 "Tell me about this game."
+   dend "Bye."
+d5_end
+
+d6_begin
+   say "Don't you are too hasty?!"
+   dend "Bye."
+d6_end

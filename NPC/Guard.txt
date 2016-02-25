@@ -1,0 +1,16 @@
+######################
+# NPC Royal Guard    #
+# Made by Fenel      #
+######################
+
+main_begin
+   say "War is coming! Be prepared!"
+   d2 "War? Are you insane?"
+   dend "Bye."
+main_end
+
+d2_begin
+   say "Great war is waiting behind the corner..."
+   say "The time will come..."
+   dend "'Yes, he is insane...'"
+d2_end

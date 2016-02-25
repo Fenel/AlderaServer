@@ -1,0 +1,5 @@
+Priest|21|96|7|5|Priest|
+Sithl|38|79|7|15|Sithl|
+Edgar|20|80|7|16|Edgar|
+Guard|54|75|8|16|Guard|
+Tyrus|30|73|6|16|Tyrus|

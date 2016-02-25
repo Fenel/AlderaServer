@@ -1,0 +1,56 @@
+######################
+# NPC Edgar          #
+# Made by Fenel      #
+######################
+
+main_begin
+   say "Hello. What brings you here?"
+   actGetPlayerValue(102,-1)
+   if -1
+   then
+      say "I've got a request for you"
+      d2 "Request?"
+   else
+      d4 "I've got that cheese."
+   fi
+   dend "Bye."
+main_end
+
+d2_begin
+   say "I want you to bring 10 pieces of Cheese"
+   d3 "I accept your request."
+   dend "Bye."
+d2_end
+
+d3_begin
+   actSetPlayerValue(102,0)
+   say "Thats's great! I'll wait here for you"
+   dend "Bye."
+d3_end
+
+d4_begin
+   actGetPlayerValue(102,0)
+   if 0
+   then
+      say "That was hard work, huh?"
+      d5 "Yes, it really was..."
+   else
+      say "I don't need more cheese. Get lost!"
+   fi
+   dend "Bye."
+d4_end
+
+d5_begin
+   actRemovePlayerItem(453,10)
+   if 1
+   then
+      say "Thank you! Here's little present for you."
+      actSetPlayerValue(102,1)
+      actAddPlayerItem(433,1)
+      actAddPlayerExperience(100,0)
+   else
+      say "You don't have that 10 pieces of cheese..."
+      say "I'll repeat: cheese. Now go kill some rats."
+   fi
+   dend "Bye."
+d5_end

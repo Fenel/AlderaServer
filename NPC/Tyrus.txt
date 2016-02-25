@@ -1,0 +1,64 @@
+######################
+# NPC Tyrus          #
+# Made by Fenel      #
+######################
+
+main_begin
+   say "Who are you?"
+   d2 "I'm common citizen."
+   dend "No one..."
+main_end
+
+d2_begin
+   actGetPlayerValue(103,-1)
+   if -1
+   then
+      say "Can you do something for me?"
+      d3 "Something?"
+   else
+      say "Ahhh, I didn't recognize you in this darkness."
+      d5 "I've got that red gem."
+   fi
+   dend "Bye."
+d2_end
+
+d3_begin
+   say "I want you to bring me a red gem."
+   say "I think i dropped that somewhere in caves underneath."
+   d4 "I'll search for that gem."
+   dend "Bye."
+d3_end
+
+d4_begin
+   actSetPlayerValue(103,0)
+   say "Thats's fantastic! By then, I'll prepare a reward for you."
+   dend "Wait for me, bye."
+d4_end
+
+d5_begin
+   actGetPlayerValue(103,0)
+   if 0
+   then
+      say "Let me see it..."
+      d6 "Yes, it is red gem"
+   else
+      say "You allready give me back my red gem."
+   fi
+   dend "Bye."
+d5_end
+
+d6_begin
+   actRemovePlayerItem(442,1)
+   if 1
+   then
+      say "Thank you! Here's little present for you."
+      say "Be aware, it's blade is sharp! That's good dagger."
+      actSetPlayerValue(103,1)
+      actAddPlayerItem(244,1)
+      actAddPlayerExperience(100,0)
+   else
+      say "Are you trying to make me mad?"
+      say "Come back when you really'll have my red gem."
+   fi
+   dend "Bye."
+d6_end
